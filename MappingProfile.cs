@@ -21,10 +21,12 @@ namespace CompanyEmployee
                 opt => opt.MapFrom(x => string.Join(' ', x.Address, x.Country)));
 
             CreateMap<CompanyCreationDto, Company>();
+            CreateMap<CompanyUpdateDto, Company>();
 
             //Auto-mapping for Employee class
             CreateMap<Employee, EmployeeDto>();
             CreateMap<EmployeeCreationDto, Employee>();
+            CreateMap<EmployeeUpdateDto, Employee>();
         }
     }
 }

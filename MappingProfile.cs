@@ -26,7 +26,7 @@ namespace CompanyEmployee
             //Auto-mapping for Employee class
             CreateMap<Employee, EmployeeDto>();
             CreateMap<EmployeeCreationDto, Employee>();
-            CreateMap<EmployeeUpdateDto, Employee>();
+            CreateMap<EmployeeUpdateDto, Employee>().ReverseMap();
         }
     }
 }

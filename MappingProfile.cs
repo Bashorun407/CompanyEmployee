@@ -21,7 +21,7 @@ namespace CompanyEmployee
                 opt => opt.MapFrom(x => string.Join(' ', x.Address, x.Country)));
 
             CreateMap<CompanyCreationDto, Company>();
-            CreateMap<CompanyUpdateDto, Company>();
+            CreateMap<CompanyUpdateDto, Company>().ReverseMap();
 
             //Auto-mapping for Employee class
             CreateMap<Employee, EmployeeDto>();

@@ -1,5 +1,9 @@
+using CompanyEmployee.Entities.Models;
 using CompanyEmployee.Extensions;
 using CompanyEmployee.Presentation.Controllers.ActionFilters;
+using CompanyEmployee.Service.Contracts;
+using CompanyEmployee.Service.DataShaping;
+using CompanyEmployee.Shared.DataTransferObjects;
 using Contracts;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
@@ -28,6 +32,7 @@ NewtonsoftJsonPatchInputFormatter GetJsonPatchInputFormatter() =>
     .OfType<NewtonsoftJsonPatchInputFormatter>().First();
 
 builder.Services.AddScoped<ValidationFilterAttribute>();
+builder.Services.AddScoped<IDataShaper<EmployeeDto>, DataShaper<EmployeeDto>>();
 
 builder.Services.AddControllers(
     config =>

@@ -48,6 +48,7 @@ namespace CompanyEmployee.Extensions
         public static void ConfigureServiceManager(this IServiceCollection services) =>
             services.AddScoped<IServiceManager, ServiceManager>();
 
+
         //This method is used to configure SqlContext...has more features due to AddDbContext
         public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration) =>
             services.AddDbContext<RepositoryContext>(opts =>

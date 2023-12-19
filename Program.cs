@@ -1,9 +1,11 @@
+using CompanyEmployee.Contracts;
 using CompanyEmployee.Entities.Models;
 using CompanyEmployee.Extensions;
 using CompanyEmployee.Presentation.Controllers.ActionFilters;
 using CompanyEmployee.Service.Contracts;
 using CompanyEmployee.Service.DataShaping;
 using CompanyEmployee.Shared.DataTransferObjects;
+using CompanyEmployee.Utility;
 using Contracts;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +31,7 @@ builder.Services.AddScoped<ValidationFilterAttribute>();
 builder.Services.AddScoped<IDataShaper<EmployeeDto>, DataShaper<EmployeeDto>>();
 builder.Services.AddCustomMediaTypes();
 builder.Services.AddScoped<ValidateMediaTypeAttribute>();
+builder.Services.AddScoped<IEmployeeLinks, EmployeeLinks>();
 NewtonsoftJsonPatchInputFormatter GetJsonPatchInputFormatter() =>
     new ServiceCollection().AddLogging().AddMvc().AddNewtonsoftJson()
     .Services.BuildServiceProvider()
